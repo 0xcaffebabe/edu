@@ -9,6 +9,7 @@
         <module name="common" />
         <module name="utils" />
         <module name="service-api" />
+        <module name="service-manage-cms" />
         <module name="model" />
       </profile>
     </annotationProcessing>
@@ -17,6 +18,7 @@
       <module name="edu-parent" target="1.8" />
       <module name="model" target="1.8" />
       <module name="service-api" target="1.8" />
+      <module name="service-manage-cms" target="9" />
       <module name="utils" target="1.8" />
       <module name="xc-framework-parent" target="1.8" />
     </bytecodeTargetLevel>
@@ -26,6 +28,7 @@
       <module name="common" options="-parameters" />
       <module name="model" options="-parameters" />
       <module name="service-api" options="-parameters" />
+      <module name="service-manage-cms" options="-parameters" />
       <module name="utils" options="-parameters" />
     </option>
   </component>

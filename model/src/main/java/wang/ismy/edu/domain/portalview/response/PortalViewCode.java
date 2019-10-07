@@ -1,7 +1,7 @@
 package wang.ismy.edu.domain.portalview.response;
 
 import com.google.common.collect.ImmutableMap;
-import com.xuecheng.framework.model.response.ResultCode;
+import wang.ismy.edu.common.model.response.ResultCode;
 import lombok.ToString;
 
 

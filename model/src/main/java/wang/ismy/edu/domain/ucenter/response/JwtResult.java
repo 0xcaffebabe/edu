@@ -1,7 +1,7 @@
 package wang.ismy.edu.domain.ucenter.response;
 
-import com.xuecheng.framework.model.response.ResponseResult;
-import com.xuecheng.framework.model.response.ResultCode;
+import wang.ismy.edu.common.model.response.ResponseResult;
+import wang.ismy.edu.common.model.response.ResultCode;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;

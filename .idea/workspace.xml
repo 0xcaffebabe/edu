@@ -2,20 +2,116 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc11d45-1008-4f5a-aa40-ffafcd412076" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_feign_unknown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_16_16.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_rabbitmq_amqp_client_5_4_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp3_okhttp_3_9_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_13_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_29.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_bson_3_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_3_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mongodb_mongodb_driver_core_3_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_amqp_spring_amqp_2_1_11_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_amqp_spring_rabbit_2_1_11_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_amqp_2_1_9_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_data_mongodb_2_1_9_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_freemarker_2_1_9_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_retry_spring_retry_1_2_4_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_support_5_1_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_messaging_5_1_10_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/request/QueryPageRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/cms/CmsPageControllerApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/service-manage-cms.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/ManageCmsApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/controller/CmsPageController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/dao/CmsPageRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_cloud_spring_cloud_starter_feign_unknown.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_1_13_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_data_spring_data_commons_2_2_0_RELEASE.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/xuecheng/framework/client/XcServiceList.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/client/XcServiceList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/xuecheng/framework/model/request/RequestData.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/request/RequestData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/xuecheng/framework/model/response/CommonCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/CommonCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/xuecheng/framework/model/response/QueryResponseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/QueryResponseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/xuecheng/framework/model/response/QueryResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/QueryResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/xuecheng/framework/model/response/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/xuecheng/framework/model/response/ResponseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/ResponseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/xuecheng/framework/model/response/ResultCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/ResultCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/xuecheng/framework/web/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/web/BaseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model/model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/model/model.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/CmsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/CmsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/model/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/CmsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/CmsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsPageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsPageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CoursePreviewResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CoursePreviewResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/GenerateHtmlResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/GenerateHtmlResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/course/request/CourseListRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/course/request/CourseListRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/course/response/AddCourseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/course/response/AddCourseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/course/response/CourseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/course/response/CourseCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/course/response/DeleteCourseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/course/response/DeleteCourseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/filesystem/response/FileSystemCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/filesystem/response/FileSystemCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/filesystem/response/UploadFileResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/filesystem/response/UploadFileResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/MediaVideoCourse.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/MediaVideoCourse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/request/QueryMediaFileRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/request/QueryMediaFileRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/response/CheckChunkResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/response/CheckChunkResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/response/MediaCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/response/MediaCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/response/MediaCourseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/response/MediaCourseResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/response/MediaFileResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/media/response/MediaFileResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/request/CreateOrderRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/request/CreateOrderRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/request/weixinPayInformRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/request/weixinPayInformRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/CreateOrderResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/CreateOrderResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/OrderCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/OrderCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/OrderResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/OrderResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/PayOrderResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/PayOrderResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/PayQrcodeResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/order/response/PayQrcodeResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/portalview/response/PortalViewCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/portalview/response/PortalViewCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/request/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/request/LoginRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/response/AuthCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/response/AuthCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/response/JwtResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/response/JwtResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/response/LoginResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/response/LoginResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/response/UcenterCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/ucenter/response/UcenterCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/model/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/parent/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-api/service-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/service-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/com/xuecheng/api/config/Swagger2Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/config/Swagger2Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/BCryptUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/BCryptUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/CookieUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/CookieUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/GenerateOrderNum.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/GenerateOrderNum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/HlsVideoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/HlsVideoUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/HttpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/MD5Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/MD5Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/Mp4VideoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/Mp4VideoUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/Oauth2Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/Oauth2Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/Snowflake.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/Snowflake.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/SnowflakeIdWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/SnowflakeIdWorker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/VideoUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/VideoUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/XcOauth2Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/XcOauth2Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/src/main/java/com/xuecheng/framework/utils/ZipUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/utils/src/main/java/wang/ismy/edu/common/utils/ZipUtil.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -36,11 +132,19 @@
     </option>
   </component>
   <component name="ProjectId" id="1Rrvv9hH2kUjcwUjxIds45fg4pf" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/service-api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -51,6 +155,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
@@ -70,6 +175,43 @@
       </list>
     </option>
   </component>
+  <component name="RunManager" selected="JUnit.CmsPageRepositoryTest.test">
+    <configuration name="CmsPageRepositoryTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-manage-cms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wang.ismy.edu.manage_cms.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="wang.ismy.edu.manage_cms.dao" />
+      <option name="MAIN_CLASS_NAME" value="wang.ismy.edu.manage_cms.dao.CmsPageRepositoryTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ManageCmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="service-manage-cms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wang.ismy.edu.manage_cms.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="wang.ismy.edu.manage_cms.ManageCmsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.CmsPageRepositoryTest.test" />
+        <item itemvalue="Spring Boot.ManageCmsApplication" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -80,7 +222,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1570438256873</updated>
-      <workItem from="1570438257953" duration="2377000" />
+      <workItem from="1570438257953" duration="9773000" />
     </task>
     <servers />
   </component>

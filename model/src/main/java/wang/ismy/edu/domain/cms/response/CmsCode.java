@@ -1,6 +1,6 @@
 package wang.ismy.edu.domain.cms.response;
 
-import com.xuecheng.framework.model.response.ResultCode;
+import wang.ismy.edu.common.model.response.ResultCode;
 import lombok.ToString;
 
 /**

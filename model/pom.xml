@@ -35,8 +35,9 @@
     <dependency>
         <groupId>org.springframework.data</groupId>
         <artifactId>spring-data-commons</artifactId>
-        <version>1.13.9.RELEASE</version>
+        <version>2.2.0.RELEASE</version>
     </dependency>
+
     <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb -->
     <dependency>
         <groupId>org.springframework.data</groupId>

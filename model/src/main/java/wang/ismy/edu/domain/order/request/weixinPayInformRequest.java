@@ -1,6 +1,6 @@
 package wang.ismy.edu.domain.order.request;
 
-import com.xuecheng.framework.model.request.RequestData;
+import wang.ismy.edu.common.model.request.RequestData;
 import lombok.Data;
 
 /**

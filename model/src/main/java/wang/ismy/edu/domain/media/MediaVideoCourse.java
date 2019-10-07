@@ -1,6 +1,6 @@
 package wang.ismy.edu.domain.media;
 
-import com.xuecheng.framework.utils.MD5Util;
+import wang.ismy.edu.common.utils.MD5Util;
 import lombok.Data;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
