@@ -1,1 +1,1 @@
-mvn package --file ./parent/pom.xml -Dmaven.skip.test=true
+mvn package --file ./parent/pom.xml -Dmaven.test.skip=true
