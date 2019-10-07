@@ -43,7 +43,7 @@
     <orderEntry type="library" name="Maven: org.springframework.security:spring-security-jwt:1.0.8.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcpkix-jdk15on:1.56" level="project" />
     <orderEntry type="library" name="Maven: org.bouncycastle:bcprov-jdk15on:1.56" level="project" />
-    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.16" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.10" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.1.11.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.1.10.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-mongodb:2.1.11.RELEASE" level="project" />
