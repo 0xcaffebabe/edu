@@ -18,4 +18,14 @@ public class QueryResult<T> {
     private List<T> list;
     //数据总数
     private long total;
+
+    public QueryResult<T> setList(List<T> list) {
+        this.list = list;
+        return this;
+    }
+
+    public QueryResult<T> setTotal(long total) {
+        this.total = total;
+        return this;
+    }
 }

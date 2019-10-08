@@ -1,6 +1,9 @@
 package wang.ismy.edu.manage_cms.controller;
 
 
+import io.swagger.annotations.Api;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Controller;
 import wang.ismy.edu.common.model.response.CommonCode;
 import wang.ismy.edu.common.model.response.QueryResponseResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +15,7 @@ import wang.ismy.edu.common.model.response.QueryResult;
 import wang.ismy.edu.common.model.response.ResultCode;
 import wang.ismy.edu.domain.cms.CmsPage;
 import wang.ismy.edu.domain.cms.request.QueryPageRequest;
+import wang.ismy.edu.manage_cms.service.PageService;
 
 import java.util.List;
 
@@ -21,16 +25,14 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("cms/page")
+@AllArgsConstructor
 public class CmsPageController implements CmsPageControllerApi {
+
+    private PageService pageService;
 
     @GetMapping("list/{page}/{size}")
     @Override
     public QueryResponseResult findList(@PathVariable Integer page,@PathVariable Integer size, QueryPageRequest request) {
-        // TODO 使用静态数据
-        QueryResult<String> queryResult = new QueryResult<>();
-        queryResult.setList(List.of("1","2","3"));
-        queryResult.setTotal(3);
-        return  new QueryResponseResult(CommonCode.SUCCESS, queryResult);
-
+        return pageService.findList(page, size, request);
     }
 }
