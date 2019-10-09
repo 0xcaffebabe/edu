@@ -5,8 +5,9 @@ import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.common.model.response.ResultCode;
 import lombok.Data;
 
+
 /**
- * Created by mrt on 2018/3/31.
+ * @author MY
  */
 @Data
 public class CmsPageResult extends ResponseResult {

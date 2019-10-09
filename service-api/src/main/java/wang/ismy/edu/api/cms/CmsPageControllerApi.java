@@ -1,7 +1,9 @@
 package wang.ismy.edu.api.cms;
 
 import wang.ismy.edu.common.model.response.QueryResponseResult;
+import wang.ismy.edu.domain.cms.CmsPage;
 import wang.ismy.edu.domain.cms.request.QueryPageRequest;
+import wang.ismy.edu.domain.cms.response.CmsPageResult;
 
 /**
  * @author MY
@@ -17,4 +19,6 @@ public interface CmsPageControllerApi {
      * @return 响应实体
      */
     QueryResponseResult findList(Integer page, Integer size, QueryPageRequest request);
+
+    CmsPageResult add(CmsPage cmsPage);
 }

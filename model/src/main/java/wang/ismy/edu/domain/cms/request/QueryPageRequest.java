@@ -16,7 +16,7 @@ public class QueryPageRequest {
 
     private String pageName;
 
-    private String pageAlias;
+    private String pageAliase;
 
     private String templateId;
 }

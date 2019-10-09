@@ -2,30 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc11d45-1008-4f5a-aa40-ffafcd412076" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/service/PageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_7_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_9_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_20.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_13.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_20.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_1_0_Final.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_2_0_Final.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_reflections_reflections_0_9_11.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/QueryResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/QueryResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/model.iml" beforeDir="false" afterPath="$PROJECT_DIR$/model/model.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/parent/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-api/service-api.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/service-api.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/request/QueryPageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/request/QueryPageRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsPageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsPageResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/cms/CmsPageControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/cms/CmsPageControllerApi.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/config/Swagger2Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/config/Swagger2Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-manage-cms/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-manage-cms/service-manage-cms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/service-manage-cms.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/ManageCmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/ManageCmsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/controller/CmsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/controller/CmsPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/dao/CmsPageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/dao/CmsPageRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/service/PageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/service/PageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-manage-cms/src/test/java/wang/ismy/edu/manage_cms/dao/CmsPageRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/test/java/wang/ismy/edu/manage_cms/dao/CmsPageRepositoryTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -115,6 +100,22 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.ManageCmsApplication">
+    <configuration name="CmsPageRepositoryTest.findByExample" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-manage-cms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wang.ismy.edu.manage_cms.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="wang.ismy.edu.manage_cms.dao" />
+      <option name="MAIN_CLASS_NAME" value="wang.ismy.edu.manage_cms.dao.CmsPageRepositoryTest" />
+      <option name="METHOD_NAME" value="findByExample" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CmsPageRepositoryTest.findPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service-manage-cms" />
       <extension name="coverage">
@@ -163,6 +164,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ManageCmsApplication" />
+        <item itemvalue="JUnit.CmsPageRepositoryTest.findByExample" />
         <item itemvalue="JUnit.CmsPageRepositoryTest.findPage" />
         <item itemvalue="JUnit.CmsPageRepositoryTest.test" />
       </list>
@@ -179,7 +181,7 @@
       <option name="presentableId" value="Default" />
       <updated>1570438256873</updated>
       <workItem from="1570438257953" duration="11888000" />
-      <workItem from="1570530487590" duration="5142000" />
+      <workItem from="1570530487590" duration="15340000" />
     </task>
     <servers />
   </component>

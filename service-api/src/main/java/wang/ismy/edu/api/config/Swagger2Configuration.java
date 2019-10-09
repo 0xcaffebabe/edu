@@ -12,7 +12,7 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 
-//@Configuration
+@Configuration
 @EnableSwagger2
 public class Swagger2Configuration {
     @Bean
@@ -21,7 +21,7 @@ public class Swagger2Configuration {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("wang.ismy"))
+                .apis(RequestHandlerSelectors.basePackage("wang.ismy.edu.api.cms"))
                 .paths(PathSelectors.any())
                 .build();
     }
