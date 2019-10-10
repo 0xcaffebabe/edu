@@ -5,11 +5,14 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
+import wang.ismy.edu.common.exception.ExceptionCast;
 import wang.ismy.edu.common.model.response.CommonCode;
 import wang.ismy.edu.common.model.response.QueryResponseResult;
 import wang.ismy.edu.common.model.response.QueryResult;
+import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.domain.cms.CmsPage;
 import wang.ismy.edu.domain.cms.request.QueryPageRequest;
+import wang.ismy.edu.domain.cms.response.CmsCode;
 import wang.ismy.edu.domain.cms.response.CmsPageResult;
 import wang.ismy.edu.manage_cms.dao.CmsPageRepository;
 
@@ -80,13 +83,17 @@ public class PageService {
     }
 
     public CmsPageResult add(CmsPage cmsPage) {
+
         if (repository.findByPageNameAndSiteIdAndPageWebPath(
-                cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath()) == null) {
-            cmsPage.setPageId(null);
-            CmsPage save = repository.save(cmsPage);
-            return new CmsPageResult(CommonCode.SUCCESS, save);
+                cmsPage.getPageName(), cmsPage.getSiteId(), cmsPage.getPageWebPath()) != null){
+            ExceptionCast.cast(CmsCode.CMS_ADDPAGE_EXISTSNAME);
         }
-        return new CmsPageResult(CommonCode.FAIL, null);
+
+        cmsPage.setPageId(null);
+        CmsPage save = repository.save(cmsPage);
+        return new CmsPageResult(CommonCode.SUCCESS, save);
+
+
     }
 
     public CmsPage findById(String id) {
@@ -97,17 +104,29 @@ public class PageService {
 
     public CmsPageResult update(CmsPage cmsPage) {
         if (cmsPage != null) {
-            if (findById(cmsPage.getPageId()) == null) {
+            if (findById(cmsPage.getPageId()) != null) {
                 CmsPage one = new CmsPage();
+                one.setPageId(cmsPage.getPageId());
                 one.setTemplateId(cmsPage.getTemplateId());
                 one.setSiteId(cmsPage.getSiteId());
                 one.setPageName(cmsPage.getPageName());
                 one.setPageWebPath(cmsPage.getPageWebPath());
                 one.setPagePhysicalPath(cmsPage.getPagePhysicalPath());
-                return new CmsPageResult(CommonCode.SUCCESS,repository.save(one));
+                return new CmsPageResult(CommonCode.SUCCESS, repository.save(cmsPage));
 
             }
         }
-        return new CmsPageResult(CommonCode.FAIL,null);
+        return new CmsPageResult(CommonCode.FAIL, null);
+    }
+
+    public ResponseResult delete(String id) {
+
+        Optional<CmsPage> opt = repository.findById(id);
+
+        if (opt.isPresent()) {
+            repository.deleteById(id);
+            return new ResponseResult(CommonCode.SUCCESS);
+        }
+        return new ResponseResult(CommonCode.FAIL);
     }
 }

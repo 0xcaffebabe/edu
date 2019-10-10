@@ -5,11 +5,8 @@ import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import wang.ismy.edu.common.model.response.CommonCode;
-import wang.ismy.edu.common.model.response.QueryResponseResult;
+import wang.ismy.edu.common.model.response.*;
 import wang.ismy.edu.api.cms.CmsPageControllerApi;
-import wang.ismy.edu.common.model.response.QueryResult;
-import wang.ismy.edu.common.model.response.ResultCode;
 import wang.ismy.edu.domain.cms.CmsPage;
 import wang.ismy.edu.domain.cms.request.QueryPageRequest;
 import wang.ismy.edu.domain.cms.response.CmsPageResult;
@@ -49,7 +46,13 @@ public class CmsPageController implements CmsPageControllerApi {
 
     @PutMapping("edit")
     @Override
-    public CmsPageResult update(CmsPage cmsPage) {
+    public CmsPageResult update(@RequestBody CmsPage cmsPage) {
         return pageService.update(cmsPage);
+    }
+
+    @DeleteMapping("del/{id}")
+    @Override
+    public ResponseResult delete(@PathVariable String id) {
+        return pageService.delete(id);
     }
 }

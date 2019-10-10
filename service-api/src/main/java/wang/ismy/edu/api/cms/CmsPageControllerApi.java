@@ -1,6 +1,7 @@
 package wang.ismy.edu.api.cms;
 
 import wang.ismy.edu.common.model.response.QueryResponseResult;
+import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.domain.cms.CmsPage;
 import wang.ismy.edu.domain.cms.request.QueryPageRequest;
 import wang.ismy.edu.domain.cms.response.CmsPageResult;
@@ -20,9 +21,27 @@ public interface CmsPageControllerApi {
      */
     QueryResponseResult findList(Integer page, Integer size, QueryPageRequest request);
 
+    /**添加页面
+     * @param cmsPage 实体
+     * @return 包含实体的响应结果
+     */
     CmsPageResult add(CmsPage cmsPage);
 
+    /** 根据ID查询页面
+     * @param id 页面ID
+     * @return 页面实体
+     */
     CmsPage findById(String id);
 
+
+    /**
+     * 更新页面
+     * @param cmsPage 页面实体
+     * @return 包含实体的响应结果
+     */
     CmsPageResult update(CmsPage cmsPage);
+
+
+    ResponseResult delete(String id);
+
 }
