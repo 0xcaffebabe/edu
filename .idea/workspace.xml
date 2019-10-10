@@ -3,15 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="bbc11d45-1008-4f5a-aa40-ffafcd412076" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/request/QueryPageRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/request/QueryPageRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsPageResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsPageResult.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/cms/CmsPageControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/cms/CmsPageControllerApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/config/Swagger2Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/config/Swagger2Configuration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/ManageCmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/ManageCmsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/controller/CmsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/controller/CmsPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/dao/CmsPageRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/dao/CmsPageRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/service/PageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/service/PageService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/test/java/wang/ismy/edu/manage_cms/dao/CmsPageRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/test/java/wang/ismy/edu/manage_cms/dao/CmsPageRepositoryTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,7 +175,7 @@
       <option name="presentableId" value="Default" />
       <updated>1570438256873</updated>
       <workItem from="1570438257953" duration="11888000" />
-      <workItem from="1570530487590" duration="15340000" />
+      <workItem from="1570530487590" duration="20032000" />
     </task>
     <servers />
   </component>

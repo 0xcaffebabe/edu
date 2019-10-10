@@ -21,4 +21,8 @@ public interface CmsPageControllerApi {
     QueryResponseResult findList(Integer page, Integer size, QueryPageRequest request);
 
     CmsPageResult add(CmsPage cmsPage);
+
+    CmsPage findById(String id);
+
+    CmsPageResult update(CmsPage cmsPage);
 }
