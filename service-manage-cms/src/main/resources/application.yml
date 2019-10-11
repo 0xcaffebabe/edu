@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: edu-service-manage-cms
+  freemarker:
+    cache: false
+    settings:
+      template_update_delay: 0
   data:
     mongodb:
       database: edu_cms

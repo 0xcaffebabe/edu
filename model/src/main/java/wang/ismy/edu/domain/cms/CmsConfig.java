@@ -7,8 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Id;
 import java.util.List;
 
+
 /**
- * Created by admin on 2018/2/6.
+ * @author MY
  */
 @Data
 @ToString

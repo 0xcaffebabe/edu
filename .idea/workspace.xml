@@ -2,14 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bbc11d45-1008-4f5a-aa40-ffafcd412076" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/exception/CustomException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/exception/ExceptionCast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/exception/ExceptionCatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/cms/CmsConfigControllerApi.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/config/MongoConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/controller/CmsConfigController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/controller/CmsPagePreviewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/dao/CmsConfigRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/dao/CmsTemplateRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/service/CmsConfigService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/main/resources/index_banner.ftl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-manage-cms/src/test/java/wang/ismy/edu/manage_cms/service/PageServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/CommonCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/model/response/CommonCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/cms/CmsPageControllerApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-api/src/main/java/wang/ismy/edu/api/cms/CmsPageControllerApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/controller/CmsPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/controller/CmsPageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/web/BaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/wang/ismy/edu/common/web/BaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/CmsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/CmsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/CmsConfigModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/CmsConfigModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/model/src/main/java/wang/ismy/edu/domain/cms/response/CmsCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/ManageCmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/ManageCmsApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/service/PageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/java/wang/ismy/edu/manage_cms/service/PageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-manage-cms/src/test/java/wang/ismy/edu/manage_cms/dao/CmsPageRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-manage-cms/src/test/java/wang/ismy/edu/manage_cms/dao/CmsPageRepositoryTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JUnit4 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -98,7 +109,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.ManageCmsApplication">
-    <configuration name="CmsPageRepositoryTest.findByExample" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CmsPageRepositoryTest.down" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service-manage-cms" />
       <extension name="coverage">
         <pattern>
@@ -108,13 +119,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="wang.ismy.edu.manage_cms.dao" />
       <option name="MAIN_CLASS_NAME" value="wang.ismy.edu.manage_cms.dao.CmsPageRepositoryTest" />
-      <option name="METHOD_NAME" value="findByExample" />
+      <option name="METHOD_NAME" value="down" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CmsPageRepositoryTest.findPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CmsPageRepositoryTest.testGridFS" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service-manage-cms" />
       <extension name="coverage">
         <pattern>
@@ -124,13 +135,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="wang.ismy.edu.manage_cms.dao" />
       <option name="MAIN_CLASS_NAME" value="wang.ismy.edu.manage_cms.dao.CmsPageRepositoryTest" />
-      <option name="METHOD_NAME" value="findPage" />
+      <option name="METHOD_NAME" value="testGridFS" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CmsPageRepositoryTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="CmsPageRepositoryTest.testRest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="service-manage-cms" />
       <extension name="coverage">
         <pattern>
@@ -140,6 +151,22 @@
       </extension>
       <option name="PACKAGE_NAME" value="wang.ismy.edu.manage_cms.dao" />
       <option name="MAIN_CLASS_NAME" value="wang.ismy.edu.manage_cms.dao.CmsPageRepositoryTest" />
+      <option name="METHOD_NAME" value="testRest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PageServiceTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-manage-cms" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="wang.ismy.edu.manage_cms.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="wang.ismy.edu.manage_cms.service" />
+      <option name="MAIN_CLASS_NAME" value="wang.ismy.edu.manage_cms.service.PageServiceTest" />
       <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -162,9 +189,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.ManageCmsApplication" />
-        <item itemvalue="JUnit.CmsPageRepositoryTest.findByExample" />
-        <item itemvalue="JUnit.CmsPageRepositoryTest.findPage" />
-        <item itemvalue="JUnit.CmsPageRepositoryTest.test" />
+        <item itemvalue="JUnit.PageServiceTest.test" />
+        <item itemvalue="JUnit.CmsPageRepositoryTest.down" />
+        <item itemvalue="JUnit.CmsPageRepositoryTest.testGridFS" />
+        <item itemvalue="JUnit.CmsPageRepositoryTest.testRest" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +208,8 @@
       <updated>1570438256873</updated>
       <workItem from="1570438257953" duration="11888000" />
       <workItem from="1570530487590" duration="23975000" />
-      <workItem from="1570706603515" duration="4142000" />
+      <workItem from="1570706603515" duration="6014000" />
+      <workItem from="1570776247060" duration="9066000" />
     </task>
     <servers />
   </component>
