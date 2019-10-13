@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: wang.ismy.edu.manage_cms.dao.CmsPageRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.817 s - in wang.ismy.edu.manage_cms.dao.CmsPageRepositoryTest

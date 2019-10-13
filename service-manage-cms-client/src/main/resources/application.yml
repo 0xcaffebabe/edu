@@ -1,0 +1,21 @@
+server:
+  port: 31000
+spring:
+  application:
+    name: edu-service-manage-cms-client
+  freemarker:
+    cache: false
+    settings:
+      template_update_delay: 0
+  data:
+    mongodb:
+      database: edu_cms
+      uri: mongodb://localhost
+  rabbitmq:
+    virtual-host: /
+    host: my-pc
+
+edu:
+  mq:
+    queue: queue_cms_postpage_01
+    routingKey: 5a751fab6abb5044e0d19ea1

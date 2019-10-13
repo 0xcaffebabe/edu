@@ -33,7 +33,6 @@ public interface CmsPageControllerApi {
      */
     CmsPage findById(String id);
 
-
     /**
      * 更新页面
      * @param cmsPage 页面实体
@@ -41,7 +40,7 @@ public interface CmsPageControllerApi {
      */
     CmsPageResult update(CmsPage cmsPage);
 
-
     ResponseResult delete(String id);
 
+    ResponseResult postPage(String pageId);
 }

@@ -18,6 +18,7 @@
         <module>../model</module>
         <module>../service-api</module>
         <module>../service-manage-cms</module>
+        <module>../service-manage-cms-client</module>
         <module>../utils</module>
     </modules>
 

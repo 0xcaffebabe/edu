@@ -1,9 +1,6 @@
 package wang.ismy.edu.manage_cms.controller;
 
-
-import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import wang.ismy.edu.common.model.response.*;
 import wang.ismy.edu.api.cms.CmsPageControllerApi;
@@ -12,7 +9,6 @@ import wang.ismy.edu.domain.cms.request.QueryPageRequest;
 import wang.ismy.edu.domain.cms.response.CmsPageResult;
 import wang.ismy.edu.manage_cms.service.PageService;
 
-import java.util.List;
 
 /**
  * @author MY
@@ -37,7 +33,6 @@ public class CmsPageController implements CmsPageControllerApi {
         return pageService.add(cmsPage);
     }
 
-
     @GetMapping("get/{id}")
     @Override
     public CmsPage findById(@PathVariable String id) {
@@ -54,5 +49,11 @@ public class CmsPageController implements CmsPageControllerApi {
     @Override
     public ResponseResult delete(@PathVariable String id) {
         return pageService.delete(id);
+    }
+
+    @PostMapping("postPage/{pageId}")
+    @Override
+    public ResponseResult postPage(@PathVariable String pageId) {
+        return pageService.postPage(pageId);
     }
 }

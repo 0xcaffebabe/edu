@@ -1,5 +1,6 @@
 package wang.ismy.edu.manage_cms.service;
 
+import com.alibaba.fastjson.JSON;
 import com.mongodb.client.gridfs.GridFSBucket;
 import com.mongodb.client.gridfs.GridFSDownloadStream;
 import com.mongodb.client.gridfs.model.GridFSFile;
@@ -9,6 +10,8 @@ import freemarker.template.TemplateException;
 import lombok.AllArgsConstructor;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.bson.types.ObjectId;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.data.domain.Example;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
@@ -28,10 +31,12 @@ import wang.ismy.edu.domain.cms.CmsTemplate;
 import wang.ismy.edu.domain.cms.request.QueryPageRequest;
 import wang.ismy.edu.domain.cms.response.CmsCode;
 import wang.ismy.edu.domain.cms.response.CmsPageResult;
+import wang.ismy.edu.manage_cms.config.RabbitMqConfig;
 import wang.ismy.edu.manage_cms.dao.CmsPageRepository;
 import wang.ismy.edu.manage_cms.dao.CmsTemplateRepository;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
@@ -56,6 +61,8 @@ public class PageService {
 
     private GridFSBucket bucket;
 
+    private RabbitTemplate rabbitTemplate;
+
 
     public QueryResponseResult findList(Integer page, Integer size, QueryPageRequest request) {
         if (request == null) {
@@ -63,7 +70,6 @@ public class PageService {
         }
 
         CmsPage cmsPage = new CmsPage();
-
 
         Example<CmsPage> example = Example.of(cmsPage);
         if (page < 1) {
@@ -246,4 +252,39 @@ public class PageService {
         return null;
 
     }
+
+    public ResponseResult postPage(String pageId){
+        String html = getPageHtml(pageId);
+
+        //保存静态化后的html到文件服务器
+        CmsPage cmsPage = saveHtml(pageId, html);
+        sendMessage(cmsPage);
+        return new ResponseResult(CommonCode.SUCCESS);
+    }
+
+    private CmsPage saveHtml(String pageId,String html){
+        CmsPage cmsPage = findById(pageId);
+        if (cmsPage == null){
+            ExceptionCast.cast(CmsCode.CMS_PAGE_NOTFOUND);
+        }
+        InputStream inputStream = null;
+        try {
+            // 保存
+            inputStream = IOUtils.toInputStream(html,"utf8");
+            ObjectId fileId = gridFsTemplate.store(inputStream, cmsPage.getPageName());
+            // 更新文件ID到page
+            cmsPage.setHtmlFileId(fileId.toHexString());
+            return cmsPageRepository.save(cmsPage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private void sendMessage(CmsPage page){
+        String msg = JSON.toJSONString(Map.of("pageId", page.getPageId()));
+        rabbitTemplate.convertAndSend(RabbitMqConfig.EX_ROUTING_CMS_POSTPAGE,page.getSiteId(),msg);
+
+    }
+
 }
