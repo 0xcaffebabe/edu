@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="wang.ismy.edu.manage_course.dao.CourseMapper">
+
+    <resultMap id="courseListMap" type="wang.ismy.edu.domain.course.ext.CourseInfo">
+        <id column="id" property="id"/>
+        <result column="pic" property="pic"/>
+        <result column="name" property="name"/>
+    </resultMap>
+
+    <select id="find" resultType="wang.ismy.edu.domain.course.CourseBase">
+        SELECT * FROM course_base WHERE id = #{courseId}
+    </select>
+
+    <select id="findCourseListPage" resultType="wang.ismy.edu.domain.course.ext.CourseInfo">
+        SELECT * FROM course_base LEFT JOIN course_pic
+        ON course_base.id = course_pic.courseid
+    </select>
+
+
+</mapper>

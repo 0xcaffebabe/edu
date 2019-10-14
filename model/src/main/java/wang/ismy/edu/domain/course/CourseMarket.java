@@ -3,6 +3,7 @@ package wang.ismy.edu.domain.course;
 import lombok.Data;
 import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
+import wang.ismy.edu.common.model.response.ResponseResult;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -32,5 +33,6 @@ public class CourseMarket implements Serializable {
     private Date startTime;
     @Column(name = "end_time")
     private Date endTime;
+
 
 }
