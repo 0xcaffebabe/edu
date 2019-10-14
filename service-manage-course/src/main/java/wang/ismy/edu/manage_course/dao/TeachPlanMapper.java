@@ -4,9 +4,9 @@ import wang.ismy.edu.domain.course.ext.TeachplanNode;
 
 /**
  * @author MY
- * @date 2019/10/13 22:51
+ * @date 2019/10/14 13:06
  */
-public interface TeachplanMapper {
+public interface TeachPlanMapper {
 
-    TeachplanNode selectList(String courseId);
+    TeachplanNode selectList(String id);
 }

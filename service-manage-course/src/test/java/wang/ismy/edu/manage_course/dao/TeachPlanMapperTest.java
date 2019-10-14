@@ -11,15 +11,15 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TeachplanMapperTest {
+public class TeachPlanMapperTest {
 
     @Autowired
-    TeachplanMapper mapper;
+    TeachPlanMapper mapper;
 
     @Test
     public void test(){
         TeachplanNode teachplanNode = mapper.selectList("4028e581617f945f01617f9dabc40000");
-
         System.out.println(teachplanNode);
     }
+
 }

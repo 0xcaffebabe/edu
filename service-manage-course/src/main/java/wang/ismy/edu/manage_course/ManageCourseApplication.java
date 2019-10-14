@@ -3,6 +3,8 @@ package wang.ismy.edu.manage_course;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  * @author MY
@@ -10,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @MapperScan("wang.ismy.edu.manage_course.dao")
+@ComponentScan("wang.ismy.edu.domain.course")
 public class ManageCourseApplication {
     public static void main(String[] args) {
         SpringApplication.run(ManageCourseApplication.class,args);

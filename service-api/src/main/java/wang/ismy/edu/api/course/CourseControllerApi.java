@@ -1,5 +1,7 @@
 package wang.ismy.edu.api.course;
 
+import wang.ismy.edu.common.model.response.ResponseResult;
+import wang.ismy.edu.domain.course.Teachplan;
 import wang.ismy.edu.domain.course.ext.TeachplanNode;
 
 /**
@@ -14,4 +16,6 @@ public interface CourseControllerApi {
      * @return 课程计划节点列表
      */
     TeachplanNode findList(String courseId);
+
+    ResponseResult save(Teachplan teachplan);
 }
