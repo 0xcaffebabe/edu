@@ -123,7 +123,6 @@ public class CourseService {
         return courseMarketRepository.findById(courseId).orElse(null);
     }
 
-
     public ResponseResult updateCourseMarket(String courseId, CourseMarket courseMarket) {
         if (findCourse(courseId) == null) {
             ExceptionCast.cast(CommonCode.INVALID_PARAM);

@@ -19,6 +19,8 @@
         <module>../service-api</module>
         <module>../service-manage-cms</module>
         <module>../service-manage-cms-client</module>
+        <module>../service-manage-course</module>
+        <module>../service-base-filesystem</module>
         <module>../utils</module>
     </modules>
 
@@ -43,7 +45,7 @@
         <lombok.version>1.18.10</lombok.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
         <fastjson.version>1.2.30</fastjson.version>
-        <fastdfs-client-java.version>1.27.0.0</fastdfs-client-java.version>
+        <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>
         <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
         <elasticsearch.version>6.2.1</elasticsearch.version>
         <guava.version>28.1-jre</guava.version>
@@ -135,9 +137,9 @@
                 <version>${fastjson.version}</version>
             </dependency>
             <dependency>
-                <groupId>net.oschina.zcx7878</groupId>
-                <artifactId>fastdfs-client-java</artifactId>
-                <version>${fastdfs-client-java.version}</version>
+                <groupId>com.github.tobato</groupId>
+                <artifactId>fastdfs-client</artifactId>
+                <version>${fastDFS.client.version}</version>
             </dependency>
 
             <dependency>
