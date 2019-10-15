@@ -4,6 +4,7 @@ import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
+
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import wang.ismy.edu.common.exception.ExceptionCast;
@@ -13,6 +14,7 @@ import wang.ismy.edu.common.model.response.QueryResult;
 import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.domain.course.CourseBase;
 import wang.ismy.edu.domain.course.CourseMarket;
+import wang.ismy.edu.domain.course.CoursePic;
 import wang.ismy.edu.domain.course.Teachplan;
 import wang.ismy.edu.domain.course.ext.CourseInfo;
 import wang.ismy.edu.domain.course.ext.TeachplanNode;
@@ -22,6 +24,7 @@ import wang.ismy.edu.manage_course.dao.CourseMapper;
 import wang.ismy.edu.manage_course.dao.TeachPlanMapper;
 import wang.ismy.edu.manage_course.repository.CourseBaseRepository;
 import wang.ismy.edu.manage_course.repository.CourseMarketRepository;
+import wang.ismy.edu.manage_course.repository.CoursePicRepository;
 import wang.ismy.edu.manage_course.repository.TeachPlanRepository;
 
 import javax.transaction.Transactional;
@@ -45,6 +48,8 @@ public class CourseService {
     private CourseMapper courseMapper;
 
     private CourseMarketRepository courseMarketRepository;
+
+    private CoursePicRepository coursePicRepository;
 
     public TeachplanNode findTeachPlan(String courseId) {
         return teachPlanMapper.selectList(courseId);
@@ -131,5 +136,48 @@ public class CourseService {
         courseMarket.setId(courseId);
         courseMarketRepository.save(courseMarket);
         return new ResponseResult(CommonCode.SUCCESS);
+    }
+
+    @Transactional(rollbackOn = Exception.class)
+    public ResponseResult addCoursePic(String courseId, String pic) {
+
+        if (findCourse(courseId) == null) {
+            ExceptionCast.cast(CommonCode.INVALID_PARAM);
+        }
+
+        CoursePic coursePic = new CoursePic();
+        coursePic.setCourseid(courseId);
+        Optional<CoursePic> opt = coursePicRepository.findById(courseId);
+
+        if (opt.isPresent()) {
+            coursePic = opt.get();
+        }
+
+        coursePic.setPic(pic);
+        coursePicRepository.save(coursePic);
+        return new ResponseResult(CommonCode.SUCCESS);
+    }
+
+    public CoursePic findCoursePic(String courseId) {
+        if (findCourse(courseId) == null) {
+            ExceptionCast.cast(CommonCode.INVALID_PARAM);
+        }
+        return coursePicRepository
+                .findById(courseId)
+                .orElse(null);
+    }
+
+    @Transactional
+    public ResponseResult deleteCoursePic(String courseId) {
+        if (findCourse(courseId) == null) {
+            ExceptionCast.cast(CommonCode.INVALID_PARAM);
+        }
+
+        if (coursePicRepository.deleteByCourseid(courseId) != 1){
+            return new ResponseResult(CommonCode.FAIL);
+        }else {
+            return new ResponseResult(CommonCode.SUCCESS);
+        }
+
     }
 }

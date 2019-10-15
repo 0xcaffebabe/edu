@@ -2,7 +2,7 @@ server:
   port: 31200
 spring:
   application:
-    name: edu-service-manage-course
+    name: service-manage-course
   datasource:
     username: root
     password: 123
@@ -11,5 +11,14 @@ mybatis:
   mapper-locations: classpath:mappers/*.xml
 pagehelper:
   helper-dialect: mysql
-logging:
-  level.wang.ismy.edu.manage_course.dao: debug
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:50101/eureka/
+
+ribbon:
+  MaxAutoRetries: 2
+  MaxAutoRetriesNextServer: 3
+  OkToRetryOnAllOperations: false
+  ConnectTimeout: 5000
+  ReadTimeout: 6000

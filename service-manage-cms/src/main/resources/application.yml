@@ -1,8 +1,8 @@
 server:
-  port: 31001
+  port: ${PORT:31001}
 spring:
   application:
-    name: edu-service-manage-cms
+    name: service-manage-cms
   freemarker:
     cache: false
     settings:
@@ -14,3 +14,7 @@ spring:
     mongodb:
       database: edu_cms
       uri: mongodb://localhost
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:50101/eureka/

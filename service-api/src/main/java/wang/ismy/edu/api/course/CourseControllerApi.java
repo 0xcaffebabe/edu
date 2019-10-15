@@ -4,6 +4,7 @@ import wang.ismy.edu.common.model.response.QueryResponseResult;
 import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.domain.course.CourseBase;
 import wang.ismy.edu.domain.course.CourseMarket;
+import wang.ismy.edu.domain.course.CoursePic;
 import wang.ismy.edu.domain.course.Teachplan;
 import wang.ismy.edu.domain.course.ext.CourseInfo;
 import wang.ismy.edu.domain.course.ext.TeachplanNode;
@@ -47,4 +48,10 @@ public interface CourseControllerApi {
     CourseMarket findCourseMarket(String courseId);
 
     ResponseResult updateCourseMarket(String courseId,CourseMarket courseMarket);
+
+    ResponseResult addCoursePic(String courseId,String pic);
+
+    CoursePic findCoursePic(String courseId);
+
+    ResponseResult deleteCoursePic(String courseId);
 }

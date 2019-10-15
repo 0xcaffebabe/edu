@@ -7,6 +7,7 @@ import wang.ismy.edu.common.model.response.QueryResponseResult;
 import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.domain.course.CourseBase;
 import wang.ismy.edu.domain.course.CourseMarket;
+import wang.ismy.edu.domain.course.CoursePic;
 import wang.ismy.edu.domain.course.Teachplan;
 import wang.ismy.edu.domain.course.ext.CourseInfo;
 import wang.ismy.edu.domain.course.ext.TeachplanNode;
@@ -70,5 +71,23 @@ public class CourseController implements CourseControllerApi {
     @Override
     public ResponseResult updateCourseMarket(@PathVariable String courseId,@RequestBody CourseMarket courseMarket) {
         return courseService.updateCourseMarket(courseId,courseMarket);
+    }
+
+    @PostMapping("coursepic/add")
+    @Override
+    public ResponseResult addCoursePic(String courseId, String pic) {
+        return courseService.addCoursePic(courseId,pic);
+    }
+
+    @GetMapping("coursepic/list/{courseId}")
+    @Override
+    public CoursePic findCoursePic(@PathVariable String courseId) {
+        return courseService.findCoursePic(courseId);
+    }
+
+    @DeleteMapping("coursepic/delete")
+    @Override
+    public ResponseResult deleteCoursePic(@RequestParam String courseId) {
+        return courseService.deleteCoursePic(courseId);
     }
 }
