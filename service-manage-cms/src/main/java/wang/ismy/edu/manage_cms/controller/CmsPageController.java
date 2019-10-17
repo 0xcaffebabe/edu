@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import wang.ismy.edu.common.model.response.*;
 import wang.ismy.edu.api.cms.CmsPageControllerApi;
 import wang.ismy.edu.domain.cms.CmsPage;
+import wang.ismy.edu.domain.cms.ext.CmsPostPageResult;
 import wang.ismy.edu.domain.cms.request.QueryPageRequest;
 import wang.ismy.edu.domain.cms.response.CmsPageResult;
 import wang.ismy.edu.manage_cms.service.PageService;
@@ -55,5 +56,17 @@ public class CmsPageController implements CmsPageControllerApi {
     @Override
     public ResponseResult postPage(@PathVariable String pageId) {
         return pageService.postPage(pageId);
+    }
+
+    @PostMapping("save")
+    @Override
+    public CmsPageResult save(@RequestBody CmsPage cmsPage) {
+        return pageService.save(cmsPage);
+    }
+
+    @PostMapping("postPageQuick")
+    @Override
+    public CmsPostPageResult postPageQuick(CmsPage cmsPage) {
+        return pageService.postPageQuick(cmsPage);
     }
 }

@@ -3,6 +3,7 @@ package wang.ismy.edu.api.cms;
 import wang.ismy.edu.common.model.response.QueryResponseResult;
 import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.domain.cms.CmsPage;
+import wang.ismy.edu.domain.cms.ext.CmsPostPageResult;
 import wang.ismy.edu.domain.cms.request.QueryPageRequest;
 import wang.ismy.edu.domain.cms.response.CmsPageResult;
 
@@ -43,4 +44,8 @@ public interface CmsPageControllerApi {
     ResponseResult delete(String id);
 
     ResponseResult postPage(String pageId);
+
+    CmsPageResult save(CmsPage cmsPage);
+
+    CmsPostPageResult postPageQuick(CmsPage cmsPage);
 }

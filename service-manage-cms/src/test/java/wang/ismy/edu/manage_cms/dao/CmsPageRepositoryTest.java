@@ -86,8 +86,8 @@ public class CmsPageRepositoryTest {
 
     @Test
     public void testGridFS() throws FileNotFoundException {
-        ObjectId id = gridFsTemplate.store(new FileInputStream("D:\\项目\\edu\\service-manage-cms\\src\\main\\resources\\index_banner.ftl"), "index_banner.ftl");
-        //5da0381a8baddb2d54631077
+        ObjectId id = gridFsTemplate.store(new FileInputStream("D:\\学习\\黑马JavaEE 57期\\19 微服务项目【学成在线】\\day09 课程预览 Eureka Feign\\资料\\课程详情页面模板\\course.ftl"),"course.ftl");
+        //5da86359ca9ce3561c70ba67
         System.out.println(id);
     }
 

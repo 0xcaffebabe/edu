@@ -12,14 +12,19 @@ import wang.ismy.edu.common.model.response.CommonCode;
 import wang.ismy.edu.common.model.response.QueryResponseResult;
 import wang.ismy.edu.common.model.response.QueryResult;
 import wang.ismy.edu.common.model.response.ResponseResult;
+import wang.ismy.edu.domain.cms.CmsPage;
+import wang.ismy.edu.domain.cms.response.CmsPageResult;
 import wang.ismy.edu.domain.course.CourseBase;
 import wang.ismy.edu.domain.course.CourseMarket;
 import wang.ismy.edu.domain.course.CoursePic;
 import wang.ismy.edu.domain.course.Teachplan;
 import wang.ismy.edu.domain.course.ext.CourseInfo;
+import wang.ismy.edu.domain.course.ext.CoursePublishResult;
+import wang.ismy.edu.domain.course.ext.CourseView;
 import wang.ismy.edu.domain.course.ext.TeachplanNode;
 import wang.ismy.edu.domain.course.request.CourseListRequest;
 import wang.ismy.edu.domain.course.response.CourseCode;
+import wang.ismy.edu.manage_course.client.CmsPageClient;
 import wang.ismy.edu.manage_course.dao.CourseMapper;
 import wang.ismy.edu.manage_course.dao.TeachPlanMapper;
 import wang.ismy.edu.manage_course.repository.CourseBaseRepository;
@@ -28,6 +33,7 @@ import wang.ismy.edu.manage_course.repository.CoursePicRepository;
 import wang.ismy.edu.manage_course.repository.TeachPlanRepository;
 
 import javax.transaction.Transactional;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +56,8 @@ public class CourseService {
     private CourseMarketRepository courseMarketRepository;
 
     private CoursePicRepository coursePicRepository;
+
+    private CmsPageClient cmsPageClient;
 
     public TeachplanNode findTeachPlan(String courseId) {
         return teachPlanMapper.selectList(courseId);
@@ -167,7 +175,7 @@ public class CourseService {
                 .orElse(null);
     }
 
-    @Transactional
+    @Transactional(rollbackOn = Exception.class)
     public ResponseResult deleteCoursePic(String courseId) {
         if (findCourse(courseId) == null) {
             ExceptionCast.cast(CommonCode.INVALID_PARAM);
@@ -179,5 +187,52 @@ public class CourseService {
             return new ResponseResult(CommonCode.SUCCESS);
         }
 
+    }
+
+    public CourseView findCourseView(String courseId) {
+        CourseView courseView = new CourseView();
+        CourseBase courseBase = courseBaseRepository.findById(courseId).orElse(null);
+        courseView.setCourseBase(courseBase);
+        CoursePic coursePic = coursePicRepository.findById(courseId).orElse(null);
+        courseView.setCoursePic(coursePic);
+        CourseMarket courseMarket = courseMarketRepository.findById(courseId).orElse(null);
+        courseView.setCourseMarket(courseMarket);
+        courseView.setTeachplanNode(teachPlanMapper.selectList(courseId));
+        return courseView;
+    }
+
+    public CoursePublishResult preview(String courseId) {
+        CourseBase courseBase = findCourse(courseId);
+
+        if (courseBase == null){
+            ExceptionCast.cast(CommonCode.INVALID_PARAM);
+        }
+        CmsPage cmsPage = new CmsPage();
+        cmsPage.setSiteId("5da8674ce5918e5c1eb60eb9");
+        cmsPage.setTemplateId("5ad9a24d68db5239b8fef199");
+        cmsPage.setDataUrl("http://localhost:31200/course/courseview/"+courseId);
+        cmsPage.setPageName(courseId+".html");
+        cmsPage.setPageAliase(courseBase.getName());
+        cmsPage.setPageWebPath("/course/detail/");
+        cmsPage.setPagePhysicalPath("/course/detail/");
+        cmsPage.setPageCreateTime(new Date());
+
+        CmsPageResult result = cmsPageClient.save(cmsPage);
+
+        if (result.isSuccess()){
+            CmsPage cmsPage1 = result.getCmsPage();
+            String url = "//www.edu.com/cms/preview/"+cmsPage1.getPageId();
+            return new CoursePublishResult(CommonCode.SUCCESS,url);
+
+        }
+        ExceptionCast.cast(CourseCode.COURSE_PUBLISH_CDETAILERROR);
+        return null;
+    }
+
+    public CoursePublishResult publish(String courseId) {
+        // 调用cms将页面发布到服务器
+
+        // 修改课程状态
+        return null;
     }
 }

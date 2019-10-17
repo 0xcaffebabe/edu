@@ -37,29 +37,30 @@ public class PageService {
 
     /**
      * 保存页面到物理路径
+     *
      * @param pageId 页面ID
      */
-    public void savePage(String pageId){
+    public void savePage(String pageId) {
         // 查询HTML文件
         CmsPage cmsPage = findPage(pageId);
-        if (cmsPage == null){
+        if (cmsPage == null) {
 
             return;
         }
         InputStream inputStream = findFile(cmsPage.getHtmlFileId());
 
-        if (inputStream == null){
-            log.error("获取文件输入流失败,id:{}",cmsPage.getHtmlFileId());
+        if (inputStream == null) {
+            log.error("获取文件输入流失败,id:{}", cmsPage.getHtmlFileId());
             return;
         }
-
+        CmsSite site = findSite(cmsPage.getSiteId());
         // 保存
-        String pagePath = cmsPage.getPagePhysicalPath()+cmsPage.getPageName();
-        try (OutputStream os = new FileOutputStream(pagePath)){
-            IOUtils.copy(inputStream,os);
+        String pagePath = site.getSiteWebPath() + cmsPage.getPagePhysicalPath() + cmsPage.getPageName();
+        try (OutputStream os = new FileOutputStream(pagePath)) {
+            IOUtils.copy(inputStream, os);
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 inputStream.close();
             } catch (IOException e) {
@@ -69,20 +70,20 @@ public class PageService {
 
     }
 
-    private CmsPage findPage(String pageId){
+    private CmsPage findPage(String pageId) {
         return cmsPageRepository.findById(pageId).orElse(null);
     }
 
-    private CmsSite findSite(String siteId){
+    private CmsSite findSite(String siteId) {
         return cmsSiteRepository.findById(siteId).orElse(null);
     }
 
-    private InputStream findFile(String fileId){
+    private InputStream findFile(String fileId) {
         GridFSFile file = gridFsTemplate.findOne(Query.query(Criteria.where("_id").is(fileId)));
 
         GridFSDownloadStream stream = bucket.openDownloadStream(file.getObjectId());
 
-        GridFsResource resource = new GridFsResource(file,stream);
+        GridFsResource resource = new GridFsResource(file, stream);
 
         try {
             return resource.getInputStream();

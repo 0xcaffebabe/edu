@@ -23,7 +23,10 @@ public class CmsPagePreviewController extends BaseController {
     @GetMapping("cms/preview/{id}")
     public void preview(@PathVariable String id) throws IOException {
         String pageHtml = pageService.getPageHtml(id);
+        response.setCharacterEncoding("utf8");
+        response.setContentType("text/html;charset=utf‐8");
 
         response.getWriter().println(pageHtml);
+
     }
 }
