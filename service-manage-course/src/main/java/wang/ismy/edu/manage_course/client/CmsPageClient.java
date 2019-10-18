@@ -23,6 +23,6 @@ public interface CmsPageClient {
     @PostMapping("/cms/page/save")
     CmsPageResult save(@RequestBody CmsPage cmsPage);
 
-    @PostMapping("/cms/page/publish")
+    @PostMapping("/cms/page/postPageQuick")
     CmsPageResult publish(@RequestBody CmsPage cmsPage);
 }

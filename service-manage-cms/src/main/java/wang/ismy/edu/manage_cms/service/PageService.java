@@ -8,6 +8,7 @@ import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateException;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.bson.types.ObjectId;
@@ -53,6 +54,7 @@ import java.util.stream.Collectors;
  */
 @Service
 @AllArgsConstructor
+@Slf4j
 public class PageService {
 
     private CmsPageRepository cmsPageRepository;
@@ -289,6 +291,7 @@ public class PageService {
 
     private void sendMessage(CmsPage page) {
         String msg = JSON.toJSONString(Map.of("pageId", page.getPageId()));
+        log.info("发送一条页面发布请求:"+msg);
         rabbitTemplate.convertAndSend(RabbitMqConfig.EX_ROUTING_CMS_POSTPAGE, page.getSiteId(), msg);
 
     }

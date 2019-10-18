@@ -181,9 +181,9 @@ public class CourseService {
             ExceptionCast.cast(CommonCode.INVALID_PARAM);
         }
 
-        if (coursePicRepository.deleteByCourseid(courseId) != 1){
+        if (coursePicRepository.deleteByCourseid(courseId) != 1) {
             return new ResponseResult(CommonCode.FAIL);
-        }else {
+        } else {
             return new ResponseResult(CommonCode.SUCCESS);
         }
 
@@ -204,14 +204,14 @@ public class CourseService {
     public CoursePublishResult preview(String courseId) {
         CourseBase courseBase = findCourse(courseId);
 
-        if (courseBase == null){
+        if (courseBase == null) {
             ExceptionCast.cast(CommonCode.INVALID_PARAM);
         }
         CmsPage cmsPage = new CmsPage();
         cmsPage.setSiteId("5da8674ce5918e5c1eb60eb9");
         cmsPage.setTemplateId("5ad9a24d68db5239b8fef199");
-        cmsPage.setDataUrl("http://localhost:31200/course/courseview/"+courseId);
-        cmsPage.setPageName(courseId+".html");
+        cmsPage.setDataUrl("http://localhost:31200/course/courseview/" + courseId);
+        cmsPage.setPageName(courseId + ".html");
         cmsPage.setPageAliase(courseBase.getName());
         cmsPage.setPageWebPath("/course/detail/");
         cmsPage.setPagePhysicalPath("/course/detail/");
@@ -219,20 +219,48 @@ public class CourseService {
 
         CmsPageResult result = cmsPageClient.save(cmsPage);
 
-        if (result.isSuccess()){
+        if (result.isSuccess()) {
             CmsPage cmsPage1 = result.getCmsPage();
-            String url = "//www.edu.com/cms/preview/"+cmsPage1.getPageId();
-            return new CoursePublishResult(CommonCode.SUCCESS,url);
+            String url = "//www.edu.com/cms/preview/" + cmsPage1.getPageId();
+            return new CoursePublishResult(CommonCode.SUCCESS, url);
 
         }
         ExceptionCast.cast(CourseCode.COURSE_PUBLISH_CDETAILERROR);
         return null;
     }
 
+    @Transactional(rollbackOn = Exception.class)
     public CoursePublishResult publish(String courseId) {
         // 调用cms将页面发布到服务器
+        CourseBase courseBase = findCourse(courseId);
+
+        if (courseBase == null) {
+            ExceptionCast.cast(CommonCode.INVALID_PARAM);
+        }
+        CmsPage cmsPage = new CmsPage();
+        cmsPage.setSiteId("5da8674ce5918e5c1eb60eb9");
+        cmsPage.setTemplateId("5ad9a24d68db5239b8fef199");
+        cmsPage.setDataUrl("http://localhost:31200/course/courseview/" + courseId);
+        cmsPage.setPageName(courseId + ".html");
+        cmsPage.setPageAliase(courseBase.getName());
+        cmsPage.setPageWebPath("/course/detail/");
+        cmsPage.setPagePhysicalPath("d:/dev/static/course/detail/");
+        cmsPage.setPageCreateTime(new Date());
+        CmsPageResult publish = cmsPageClient.publish(cmsPage);
+        String pageUrl = "//www.edu.com/course/detail/"+cmsPage.getPageName();
+        if (!publish.isSuccess()) {
+            return new CoursePublishResult(CommonCode.FAIL,null);
+        }
 
         // 修改课程状态
-        return null;
+        saveCoursePubState(courseId);
+
+        return new CoursePublishResult(CommonCode.SUCCESS,pageUrl);
+    }
+
+    private CourseBase saveCoursePubState(String courseId){
+        CourseBase courseBase = findCourse(courseId);
+        courseBase.setStatus("202002");
+        return courseBaseRepository.save(courseBase);
     }
 }

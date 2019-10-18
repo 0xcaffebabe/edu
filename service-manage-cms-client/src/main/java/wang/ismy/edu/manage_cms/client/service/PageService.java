@@ -55,7 +55,7 @@ public class PageService {
         }
         CmsSite site = findSite(cmsPage.getSiteId());
         // 保存
-        String pagePath = site.getSiteWebPath() + cmsPage.getPagePhysicalPath() + cmsPage.getPageName();
+        String pagePath =  cmsPage.getPagePhysicalPath() + cmsPage.getPageName();
         try (OutputStream os = new FileOutputStream(pagePath)) {
             IOUtils.copy(inputStream, os);
         } catch (IOException e) {
