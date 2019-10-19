@@ -1,10 +1,12 @@
 package wang.ismy.edu.manage_course.service;
 
+import com.alibaba.fastjson.JSON;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import wang.ismy.edu.common.exception.ExceptionCast;
@@ -14,10 +16,7 @@ import wang.ismy.edu.common.model.response.QueryResult;
 import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.domain.cms.CmsPage;
 import wang.ismy.edu.domain.cms.response.CmsPageResult;
-import wang.ismy.edu.domain.course.CourseBase;
-import wang.ismy.edu.domain.course.CourseMarket;
-import wang.ismy.edu.domain.course.CoursePic;
-import wang.ismy.edu.domain.course.Teachplan;
+import wang.ismy.edu.domain.course.*;
 import wang.ismy.edu.domain.course.ext.CourseInfo;
 import wang.ismy.edu.domain.course.ext.CoursePublishResult;
 import wang.ismy.edu.domain.course.ext.CourseView;
@@ -27,12 +26,10 @@ import wang.ismy.edu.domain.course.response.CourseCode;
 import wang.ismy.edu.manage_course.client.CmsPageClient;
 import wang.ismy.edu.manage_course.dao.CourseMapper;
 import wang.ismy.edu.manage_course.dao.TeachPlanMapper;
-import wang.ismy.edu.manage_course.repository.CourseBaseRepository;
-import wang.ismy.edu.manage_course.repository.CourseMarketRepository;
-import wang.ismy.edu.manage_course.repository.CoursePicRepository;
-import wang.ismy.edu.manage_course.repository.TeachPlanRepository;
+import wang.ismy.edu.manage_course.repository.*;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -46,16 +43,12 @@ import java.util.Optional;
 public class CourseService {
 
     private TeachPlanMapper teachPlanMapper;
-
     private TeachPlanRepository teachPlanRepository;
-
     private CourseBaseRepository courseBaseRepository;
-
     private CourseMapper courseMapper;
-
     private CourseMarketRepository courseMarketRepository;
-
     private CoursePicRepository coursePicRepository;
+    private CoursePubRepository coursePubRepository;
 
     private CmsPageClient cmsPageClient;
 
@@ -67,6 +60,7 @@ public class CourseService {
     public ResponseResult savePlan(Teachplan teachplan) {
         String courseid = teachplan.getCourseid();
         String parentid = teachplan.getParentid();
+
         if (StringUtils.isEmpty(parentid)) {
             parentid = getTeachplanRoot(courseid);
         }
@@ -77,6 +71,7 @@ public class CourseService {
         } else {
             teachplan.setGrade("3");
         }
+        teachplan.setParentid(parentid);
         teachPlanRepository.save(teachplan);
         return new ResponseResult(CommonCode.SUCCESS);
     }
@@ -112,6 +107,7 @@ public class CourseService {
         return new QueryResponseResult<>(CommonCode.SUCCESS, result);
     }
 
+    @Transactional(rollbackOn = Exception.class)
     public ResponseResult saveCourse(CourseBase courseBase) {
 
         courseBaseRepository.save(courseBase);
@@ -247,20 +243,49 @@ public class CourseService {
         cmsPage.setPagePhysicalPath("d:/dev/static/course/detail/");
         cmsPage.setPageCreateTime(new Date());
         CmsPageResult publish = cmsPageClient.publish(cmsPage);
-        String pageUrl = "//www.edu.com/course/detail/"+cmsPage.getPageName();
+        String pageUrl = "//www.edu.com/course/detail/" + cmsPage.getPageName();
         if (!publish.isSuccess()) {
-            return new CoursePublishResult(CommonCode.FAIL,null);
+            return new CoursePublishResult(CommonCode.FAIL, null);
         }
 
         // 修改课程状态
         saveCoursePubState(courseId);
-
-        return new CoursePublishResult(CommonCode.SUCCESS,pageUrl);
+        // 保存课程索引
+        saveCoursePub(courseId);
+        return new CoursePublishResult(CommonCode.SUCCESS, pageUrl);
     }
 
-    private CourseBase saveCoursePubState(String courseId){
+    private CourseBase saveCoursePubState(String courseId) {
         CourseBase courseBase = findCourse(courseId);
         courseBase.setStatus("202002");
         return courseBaseRepository.save(courseBase);
+    }
+
+    private void saveCoursePub(String courseId) {
+        CoursePub pub = new CoursePub();
+
+        Optional<CourseBase> baseOptional = courseBaseRepository.findById(courseId);
+        if (baseOptional.isPresent()) {
+            CourseBase courseBase = baseOptional.get();
+            BeanUtils.copyProperties(courseBase, pub);
+        }
+        Optional<CoursePic> picOptional = coursePicRepository.findById(courseId);
+        if (picOptional.isPresent()) {
+            CoursePic coursePic = picOptional.get();
+            BeanUtils.copyProperties(coursePic, pub);
+        }
+        Optional<CourseMarket> marketOptional = courseMarketRepository.findById(courseId);
+        if (marketOptional.isPresent()) {
+            CourseMarket courseMarket = marketOptional.get();
+            BeanUtils.copyProperties(courseMarket, pub);
+        }
+        TeachplanNode teachplanNode = teachPlanMapper.selectList(courseId);
+        String jsonString = JSON.toJSONString(teachplanNode);
+
+        pub.setTeachplan(jsonString);
+        pub.setId(courseId);
+        pub.setTimestamp(new Date());
+        pub.setPubTime(LocalDateTime.now().toString());
+        coursePubRepository.save(pub);
     }
 }
