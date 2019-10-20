@@ -1,0 +1,5 @@
+server:
+  port: 40100
+spring:
+  application:
+    name: search-service
