@@ -101,6 +101,7 @@ public class SearchCourseService {
                 CoursePub coursePub = new CoursePub();
                 //源文档
                 Map<String, Object> sourceAsMap = hit.getSourceAsMap();
+                coursePub.setId(sourceAsMap.get("id").toString());
                 //取出name
                 String name = (String) sourceAsMap.get("name");
                 coursePub.setName(name);
@@ -138,8 +139,7 @@ public class SearchCourseService {
         }
 
         queryResult.setList(list);
-        QueryResponseResult<CoursePub> queryResponseResult = new QueryResponseResult<CoursePub>(CommonCode.SUCCESS,queryResult);
 
-        return queryResponseResult;
+        return new QueryResponseResult<>(CommonCode.SUCCESS, queryResult);
     }
 }

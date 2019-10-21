@@ -8,6 +8,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScans;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author MY
@@ -16,6 +17,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @MapperScan("wang.ismy.edu.manage_course.dao")
 @EntityScan("wang.ismy.edu.domain.course")
+@EnableScheduling
 @EnableFeignClients
 public class ManageCourseApplication {
     public static void main(String[] args) {

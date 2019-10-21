@@ -23,6 +23,8 @@
         <module>../service-base-filesystem</module>
         <module>../utils</module>
         <module>../service-search</module>
+        <module>../service-manage-media</module>
+        <module>../govern-center</module>
     </modules>
 
     <properties>

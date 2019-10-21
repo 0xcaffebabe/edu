@@ -1,6 +1,8 @@
 package wang.ismy.edu.manage_course.service;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import wang.ismy.edu.domain.course.CoursePub;
 import wang.ismy.edu.manage_course.pojo.Course;
@@ -17,6 +19,7 @@ import java.util.stream.Collectors;
  */
 @Service
 @AllArgsConstructor
+@Slf4j
 public class CoursePubService {
 
     private CourseIndexRepository courseIndexRepository;
@@ -27,7 +30,9 @@ public class CoursePubService {
      * 将数据库course_pub中的数据转储到索引库
      */
     @Transactional(rollbackOn = Exception.class)
+    @Scheduled(fixedDelay = 60*1000)
     public void saveIndex(){
+        log.info("索引转储");
         courseIndexRepository.deleteAll();
         List<Course> all = coursePubRepository.findAll()
                 .stream()
