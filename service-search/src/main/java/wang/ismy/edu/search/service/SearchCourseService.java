@@ -45,105 +45,101 @@ public class SearchCourseService {
 
     private RestHighLevelClient restHighLevelClient;
     private RestTemplate restTemplate;
-    public QueryResponseResult findList(Integer page, Integer size, CourseSearchParam param) {
-        String json = "{\n" +
-                "    \"query\": {\n" +
-                "      \"bool\": {\n" +
-                "        \"must\": [\n" +
-                "          {\n" +
-                "            \"multi_match\": {\n" +
-                "              \"query\": \""+param.getKeyword()+"\",\n" +
-                "              \"fields\": [\"name\",\"description\",\"teachplan\"]\n" +
-                "            }\n" +
-                "          }\n" +
-                "        ],\n" +
-                "        \"filter\": [\n" +
-                "        {\n" +
-                "        \"term\": {\n" +
-                "        \"mt\": \""+param.getMt()+"\"\n" +
-                "        }\n" +
-                "      },\n" +
-                "      {\n" +
-                "        \"term\": {\n" +
-                "        \"st\": \""+param.getSt()+"\"\n" +
-                "        }\n" +
-                "      },\n" +
-                "      {\n" +
-                "        \"term\": {\n" +
-                "        \"grade\": \""+param.getGrade()+"\"\n" +
-                "        }\n" +
-                "      }\n" +
-                "        ]\n" +
-                "      }\n" +
-                "    }\n" +
-                "}";
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("content-type","application/json; charset=UTF-8");
-        HttpEntity<String> request = new HttpEntity<>(json,headers);
-        ResponseEntity<String> result = restTemplate.postForEntity("http://my-pc:9200/edu_course/_search", request, String.class);
-        String body = result.getBody();
-        JSONObject jsonObject = JSON.parseObject(body);
-        JSONArray hits = jsonObject.getJSONObject("hits").getJSONArray("hits");
-        List<CoursePub> pubList = new ArrayList<>();
-        for (int i = 0; i < hits.size(); i++) {
-            JSONObject source = hits.getJSONObject(i).getJSONObject("_source");
-            CoursePub pub = JSON.parseObject(source.toJSONString(), CoursePub.class);
-            pubList.add(pub);
+    public QueryResponseResult<CoursePub> findList(int page, int size, CourseSearchParam courseSearchParam) {
+        if(courseSearchParam == null){
+            courseSearchParam = new CourseSearchParam();
         }
-
-        return new QueryResponseResult<>(CommonCode.SUCCESS,new QueryResult<>(pubList,pubList.size()));
-    }
-
-    public QueryResponseResult findList1(Integer page, Integer size, CourseSearchParam param) {
-
-        SearchRequest searchRequest = new SearchRequest(EDU_COURSE);
-        searchRequest.types(TYPE);
+        //创建搜索请求对象
+        SearchRequest searchRequest = new SearchRequest("edu_course");
+        //设置搜索类型
+        searchRequest.types("doc");
 
         SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-        searchRequest.source(SearchSourceBuilder.searchSource());
+        //过虑源字段
+//        String[] source_field_array = source_field.split(",");
+//        searchSourceBuilder.fetchSource(source_field_array,new String[]{});
+        //创建布尔查询对象
         BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
-        // 根据关键字搜索
-        if (!StringUtils.isEmpty(param.getKeyword())) {
-
-            MultiMatchQueryBuilder multiMatchQueryBuilder =
-                    QueryBuilders.multiMatchQuery(param.getKeyword(), "name", "description", "teachplan")
-                            .minimumShouldMatch("70%")
-                            .field("name", 10);
-
+        //搜索条件
+        //根据关键字搜索
+        if(StringUtils.isNotEmpty(courseSearchParam.getKeyword())){
+            MultiMatchQueryBuilder multiMatchQueryBuilder = QueryBuilders.multiMatchQuery(courseSearchParam.getKeyword(), "name", "description", "teachplan")
+                    .minimumShouldMatch("70%")
+                    .field("name", 10);
             boolQueryBuilder.must(multiMatchQueryBuilder);
         }
+        if(StringUtils.isNotEmpty(courseSearchParam.getMt())){
+            //根据一级分类
+            boolQueryBuilder.filter(QueryBuilders.termQuery("mt",courseSearchParam.getMt()));
+        }
+        if(StringUtils.isNotEmpty(courseSearchParam.getSt())){
+            //根据二级分类
+            boolQueryBuilder.filter(QueryBuilders.termQuery("st",courseSearchParam.getSt()));
+        }
+        if(StringUtils.isNotEmpty(courseSearchParam.getGrade())){
+            //根据难度等级
+            boolQueryBuilder.filter(QueryBuilders.termQuery("grade",courseSearchParam.getGrade()));
+        }
 
+        //设置boolQueryBuilder到searchSourceBuilder
         searchSourceBuilder.query(boolQueryBuilder);
+        searchRequest.source(searchSourceBuilder);
 
-
-        SearchResponse response = null;
+        QueryResult<CoursePub> queryResult = new QueryResult();
+        List<CoursePub> list = new ArrayList<>();
         try {
-            response = restHighLevelClient.search(searchRequest);
+            //执行搜索
+            SearchResponse searchResponse = restHighLevelClient.search(searchRequest);
+            //获取响应结果
+            SearchHits hits = searchResponse.getHits();
+            //匹配的总记录数
+            long totalHits = hits.totalHits;
+            queryResult.setTotal(totalHits);
+            SearchHit[] searchHits = hits.getHits();
+            for(SearchHit hit:searchHits){
+                CoursePub coursePub = new CoursePub();
+                //源文档
+                Map<String, Object> sourceAsMap = hit.getSourceAsMap();
+                //取出name
+                String name = (String) sourceAsMap.get("name");
+                coursePub.setName(name);
+                //图片
+                String pic = (String) sourceAsMap.get("pic");
+                coursePub.setPic(pic);
+                //价格
+                Double price = null;
+                try {
+                    if(sourceAsMap.get("price")!=null ){
+                        price = (Double) sourceAsMap.get("price");
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                coursePub.setPrice(price);
+                //旧价格
+                Double price_old = null;
+                try {
+                    if(sourceAsMap.get("price_old")!=null ){
+                        price_old = (Double) sourceAsMap.get("price_old");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                coursePub.setPrice_old(price_old);
+                //将coursePub对象放入list
+                list.add(coursePub);
+            }
+
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
-        SearchHits hits = response.getHits();
-        QueryResult<CoursePub> result = new QueryResult<>();
-        result.setTotal(hits.totalHits);
-        List<CoursePub> coursePubList = new ArrayList<>();
-        for (SearchHit hit : hits.getHits()) {
-            CoursePub pub = new CoursePub();
-            Map<String, Object> map = hit.getSourceAsMap();
-            pub.setName(map.get("name").toString());
-            pub.setPic(map.get("pic").toString());
-            if (map.get("price") != null) {
-                pub.setPrice(Float.parseFloat(map.get("price").toString()));
-            }
 
-            if (map.get("price_old") != null) {
-                pub.setPrice_old(Float.parseFloat(map.get("price_old").toString()));
-            }
+        queryResult.setList(list);
+        QueryResponseResult<CoursePub> queryResponseResult = new QueryResponseResult<CoursePub>(CommonCode.SUCCESS,queryResult);
 
-            coursePubList.add(pub);
-        }
-        result.setList(coursePubList);
-        return new QueryResponseResult<>(CommonCode.SUCCESS, result);
-
+        return queryResponseResult;
     }
 }
