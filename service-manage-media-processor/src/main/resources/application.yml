@@ -1,0 +1,22 @@
+server:
+  port: 31450
+spring:
+  application:
+    name: service-manage-media-processor
+  data:
+    mongodb:
+      uri:  mongodb://localhost
+      database: edu_media
+  #rabbitmq配置
+  rabbitmq:
+    host: my-pc
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+service-manage-media:
+  mq:
+    queue-media-video-processor: queue_media_video_processor
+    routingkey-media-video: routingkey_media_video
+  video-location: D:/dev/video/
+  ffmpeg-path: C:/dev/ffmpeg-20191022-0b8956b-win64-static/bin/ffmpeg.exe

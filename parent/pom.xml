@@ -25,6 +25,7 @@
         <module>../service-search</module>
         <module>../service-manage-media</module>
         <module>../govern-center</module>
+        <module>../service-manage-media-processor</module>
     </modules>
 
     <properties>
