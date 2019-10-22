@@ -7,7 +7,7 @@ spring:
     mongodb:
       uri:  mongodb://localhost
       database: edu_media
-xc-service-manage-media:
+service-manage-media:
   upload-location: D:/dev/video/
 eureka:
   client:
