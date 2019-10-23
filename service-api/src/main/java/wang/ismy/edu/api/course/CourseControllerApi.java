@@ -2,10 +2,7 @@ package wang.ismy.edu.api.course;
 
 import wang.ismy.edu.common.model.response.QueryResponseResult;
 import wang.ismy.edu.common.model.response.ResponseResult;
-import wang.ismy.edu.domain.course.CourseBase;
-import wang.ismy.edu.domain.course.CourseMarket;
-import wang.ismy.edu.domain.course.CoursePic;
-import wang.ismy.edu.domain.course.Teachplan;
+import wang.ismy.edu.domain.course.*;
 import wang.ismy.edu.domain.course.ext.CourseInfo;
 import wang.ismy.edu.domain.course.ext.CoursePublishResult;
 import wang.ismy.edu.domain.course.ext.CourseView;
@@ -62,4 +59,6 @@ public interface CourseControllerApi {
     CoursePublishResult preview(String courseId);
 
     CoursePublishResult publish(String courseId);
+
+    ResponseResult saveMedia(TeachplanMedia media);
 }

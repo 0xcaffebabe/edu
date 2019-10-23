@@ -32,7 +32,7 @@ public class MediaProcessTask {
     @Value("${service-manage-media.video-location}")
     String videoLocation;
 
-    @RabbitListener(queues = "${service-manage-media.mq.queue-media-video-processor}")
+    @RabbitListener(queues = "${service-manage-media.mq.queue-media-video-processor}",containerFactory = "customContainerFactory")
     public void process(String msg) {
         // 解析得到media id
 
@@ -63,7 +63,7 @@ public class MediaProcessTask {
         String result = mp4VideoUtil.generateMp4();
         if (!"success".equals(result)) {
             log.info("视频转换失败:{},{}", mediaId, result);
-            mediaFile.setFileStatus("303003");
+            mediaFile.setProcessStatus("303003");
             mediaFileRepository.save(mediaFile);
             return;
         }
@@ -79,11 +79,11 @@ public class MediaProcessTask {
         result = hlsVideoUtil.generateM3u8();
         if (!"success".equals(result)) {
             log.info("生成m3u8失败,{}", result);
-            mediaFile.setFileStatus("303003");
+            mediaFile.setProcessStatus("303003");
             mediaFileRepository.save(mediaFile);
             return;
         }
-        mediaFile.setFileStatus("303002");
+        mediaFile.setProcessStatus("303002");
         MediaFileProcess_m3u8 mediaFileProcessM3u8 = new MediaFileProcess_m3u8();
         mediaFileProcessM3u8.setTslist(hlsVideoUtil.get_ts_list());
         mediaFile.setMediaFileProcess_m3u8(mediaFileProcessM3u8);
