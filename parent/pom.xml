@@ -26,6 +26,7 @@
         <module>../service-manage-media</module>
         <module>../govern-center</module>
         <module>../service-manage-media-processor</module>
+        <module>../service-learning</module>
     </modules>
 
     <properties>

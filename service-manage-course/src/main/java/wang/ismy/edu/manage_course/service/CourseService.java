@@ -49,6 +49,7 @@ public class CourseService {
     private CourseMarketRepository courseMarketRepository;
     private CoursePicRepository coursePicRepository;
     private CoursePubRepository coursePubRepository;
+    private TeachPlanMediaRepository teachPlanMediaRepository;
 
     private CmsPageClient cmsPageClient;
 
@@ -287,5 +288,29 @@ public class CourseService {
         pub.setTimestamp(new Date());
         pub.setPubTime(LocalDateTime.now().toString());
         coursePubRepository.save(pub);
+    }
+
+    public ResponseResult saveMedia(TeachplanMedia media) {
+        String teachplanId = media.getTeachplanId();
+        if (StringUtils.isEmpty(teachplanId)) {
+            ExceptionCast.cast(CommonCode.INVALID_PARAM);
+        }
+        Optional<Teachplan> opt = teachPlanRepository.findById(teachplanId);
+        if (!opt.isPresent()) {
+            ExceptionCast.cast(CommonCode.INVALID_PARAM);
+        }
+
+        Teachplan teachplan = opt.get();
+        if (!"3".equals(teachplan.getGrade())) {
+            ExceptionCast.cast(CourseCode.COURSE_MEDIA_GRADE_ERROR);
+        }
+        TeachplanMedia teachplanMedia = teachPlanMediaRepository.findById(teachplanId).orElse(new TeachplanMedia());
+        teachplanMedia.setTeachplanId(teachplanId);
+        teachplanMedia.setCourseId(media.getCourseId());
+        teachplanMedia.setMediaFileOriginalName(media.getMediaFileOriginalName());
+        teachplanMedia.setMediaId(media.getMediaId());
+        teachplanMedia.setMediaUrl(media.getMediaUrl());
+        teachPlanMediaRepository.save(teachplanMedia);
+        return new ResponseResult(CommonCode.SUCCESS);
     }
 }

@@ -9,6 +9,8 @@ import wang.ismy.edu.domain.course.ext.CourseView;
 import wang.ismy.edu.domain.course.ext.TeachplanNode;
 import wang.ismy.edu.domain.course.request.CourseListRequest;
 
+import java.util.Map;
+
 /**
  * @author MY
  * @date 2019/10/13 22:15
@@ -61,4 +63,6 @@ public interface CourseControllerApi {
     CoursePublishResult publish(String courseId);
 
     ResponseResult saveMedia(TeachplanMedia media);
+
+
 }
