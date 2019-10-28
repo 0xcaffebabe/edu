@@ -12,6 +12,7 @@
 
     <artifactId>service-ucenter-auth</artifactId>
 
+
 <dependencies>
     <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -84,6 +85,12 @@
     <dependency>
         <groupId>wang.ismy</groupId>
         <artifactId>model</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>wang.ismy</groupId>
+        <artifactId>service-api</artifactId>
         <version>1.0-SNAPSHOT</version>
         <scope>compile</scope>
     </dependency>

@@ -62,8 +62,7 @@ class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
-        clients.jdbc(this.dataSource).clients(this.clientDetails());
-
+        //clients.jdbc(this.dataSource).clients(this.clientDetails());
 
         clients.inMemory()
                 .withClient("XcWebApp")//客户端id
