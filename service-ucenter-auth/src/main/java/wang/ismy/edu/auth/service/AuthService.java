@@ -35,13 +35,16 @@ public class AuthService {
 
     public AuthToken login(String username, String password) {
         UserDetails details = userService.loadUserByUsername(username);
+        if (details == null) {
+            ExceptionCast.cast(AuthCode.AUTH_CREDENTIAL_ERROR);
+        }
         if (new BCryptPasswordEncoder().matches(password, details.getPassword())) {
             AuthToken authToken = new AuthToken();
             String accessToken = UUID.randomUUID().toString();
             authToken.setAccess_token(accessToken);
             authToken.setRefresh_token(accessToken);
             authToken.setJwt_token(generateJwt(details));
-            redisTemplate.opsForValue().set("user_token:"+accessToken,authToken.getJwt_token(),1, TimeUnit.HOURS);
+            redisTemplate.opsForValue().set("user_token:" + accessToken, authToken.getJwt_token(), 1, TimeUnit.HOURS);
             return authToken;
         } else {
             ExceptionCast.cast(AuthCode.AUTH_CREDENTIAL_ERROR);
