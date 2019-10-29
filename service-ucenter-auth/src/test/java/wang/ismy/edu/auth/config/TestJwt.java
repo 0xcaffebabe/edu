@@ -10,7 +10,8 @@ import org.springframework.security.jwt.Jwt;
 import org.springframework.security.jwt.JwtHelper;
 import org.springframework.security.jwt.crypto.sign.RsaSigner;
 import org.springframework.security.jwt.crypto.sign.RsaVerifier;
-import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFactory;
+
+import org.springframework.security.rsa.crypto.KeyStoreKeyFactory;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.security.KeyPair;

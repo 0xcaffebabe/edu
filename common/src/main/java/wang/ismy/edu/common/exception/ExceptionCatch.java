@@ -18,6 +18,9 @@ import wang.ismy.edu.common.model.response.ResultCode;
 @Slf4j
 public class ExceptionCatch {
 
+    {
+        System.out.println("cather load");
+    }
     private static final ImmutableMap<Class<? extends Throwable>, ResultCode>
             EXCEPTION_MAP = ImmutableMap.of(HttpMessageNotReadableException.class,CommonCode.INVALID_PARAM);
 

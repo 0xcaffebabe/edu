@@ -18,6 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 @SpringBootApplication
 @EntityScan("wang.ismy.edu.domain.ucenter")
+//@ComponentScan("wang.ismy.edu.common")
 public class UcenterAuthApplication {
     public static void main(String[] args) {
         SpringApplication.run(UcenterAuthApplication.class, args);

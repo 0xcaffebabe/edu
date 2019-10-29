@@ -2,6 +2,7 @@ package wang.ismy.edu.api.auth;
 
 import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.domain.ucenter.request.LoginRequest;
+import wang.ismy.edu.domain.ucenter.response.JwtResult;
 import wang.ismy.edu.domain.ucenter.response.LoginResult;
 
 import javax.servlet.http.HttpServletResponse;
@@ -14,5 +15,11 @@ public interface AuthControllerApi {
 
     LoginResult login(LoginRequest request, HttpServletResponse response);
 
-    ResponseResult logout();
+    /**
+     * 获取用户令牌
+     * @return jwt
+     */
+    JwtResult userJwt(String token);
+
+    ResponseResult logout(String token,HttpServletResponse response);
 }
