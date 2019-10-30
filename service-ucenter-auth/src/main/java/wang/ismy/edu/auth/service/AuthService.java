@@ -73,6 +73,7 @@ public class AuthService {
         Map<String, String> map = new HashMap<>();
         map.put("username", details.getUsername());
         map.put("password", details.getPassword());
+//        map.put("authorities",JSON.toJSONString(details.getAuthorities().stream().map(a->a.)));
         if (true) {
             return JSON.toJSONString(map);
         }

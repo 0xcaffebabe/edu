@@ -45,6 +45,7 @@ public class LoginFilter extends ZuulFilter {
         RequestContext currentContext = RequestContext.getCurrentContext();
         HttpServletRequest request = currentContext.getRequest();
         if (!authService.exist(authService.getToken(request))) {
+            // 拒绝访问
             currentContext.setSendZuulResponse(false);
             currentContext.setResponseStatusCode(401);
             ResponseResult result = new ResponseResult(CommonCode.UNAUTHENTICATED);

@@ -25,6 +25,6 @@ public class UserService {
             return null;
         }
 
-        return new User(username,userExt.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList(""));
+        return new User(username,userExt.getPassword(), AuthorityUtils.commaSeparatedStringToAuthorityList("course_find_pic"));
     }
 }
