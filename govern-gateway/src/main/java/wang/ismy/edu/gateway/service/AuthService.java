@@ -30,4 +30,8 @@ public class AuthService {
 
         return redisTemplate.hasKey("user_token:"+token);
     }
+
+    public String getJwt(String token){
+        return redisTemplate.opsForValue().get("user_token:"+token);
+    }
 }

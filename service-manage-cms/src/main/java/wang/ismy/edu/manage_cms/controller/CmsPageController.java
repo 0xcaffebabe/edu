@@ -1,6 +1,7 @@
 package wang.ismy.edu.manage_cms.controller;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 import wang.ismy.edu.common.model.response.*;
 import wang.ismy.edu.api.cms.CmsPageControllerApi;
@@ -18,6 +19,7 @@ import wang.ismy.edu.manage_cms.service.PageService;
 @RestController
 @RequestMapping("cms/page")
 @AllArgsConstructor
+@Slf4j
 public class CmsPageController implements CmsPageControllerApi {
 
     private PageService pageService;
@@ -60,7 +62,8 @@ public class CmsPageController implements CmsPageControllerApi {
 
     @PostMapping("save")
     @Override
-    public CmsPageResult save(@RequestBody CmsPage cmsPage) {
+    public CmsPageResult save(@RequestBody CmsPage cmsPage,@RequestHeader("jwt") String jwt) {
+        log.info("接收到jwt：{}",jwt);
         return pageService.save(cmsPage);
     }
 

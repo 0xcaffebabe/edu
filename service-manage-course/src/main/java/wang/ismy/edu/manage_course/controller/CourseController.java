@@ -1,11 +1,11 @@
 package wang.ismy.edu.manage_course.controller;
 
+import com.alibaba.fastjson.JSON;
 import lombok.AllArgsConstructor;
-import org.apache.commons.lang3.StringUtils;
+
 import org.springframework.web.bind.annotation.*;
 import wang.ismy.edu.api.course.CourseControllerApi;
-import wang.ismy.edu.common.exception.ExceptionCast;
-import wang.ismy.edu.common.model.response.CommonCode;
+import wang.ismy.edu.common.annotation.Permission;
 import wang.ismy.edu.common.model.response.QueryResponseResult;
 import wang.ismy.edu.common.model.response.ResponseResult;
 import wang.ismy.edu.domain.course.*;
@@ -15,6 +15,8 @@ import wang.ismy.edu.domain.course.ext.CourseView;
 import wang.ismy.edu.domain.course.ext.TeachplanNode;
 import wang.ismy.edu.domain.course.request.CourseListRequest;
 import wang.ismy.edu.manage_course.service.CourseService;
+
+import java.util.Map;
 
 /**
  * @author MY
@@ -39,9 +41,17 @@ public class CourseController implements CourseControllerApi {
         return courseService.savePlan(teachplan);
     }
 
+    @Permission("xc_teachmanager_course_market")
     @GetMapping("coursebase/list/{page}/{size}")
     @Override
-    public QueryResponseResult<CourseInfo> findCourseList(@PathVariable Integer page, @PathVariable Integer size, CourseListRequest request) {
+    public QueryResponseResult<CourseInfo> findCourseList(@PathVariable Integer page, @PathVariable Integer size, CourseListRequest request,@RequestHeader("jwt") String jwt) {
+        if (request == null){
+            request = new CourseListRequest();
+        }
+        ;
+        String companyId = JSON.parseObject(jwt, Map.class).get("companyId").toString();
+
+        request.setCompanyId(companyId);
         return courseService.findCourseList(page,size,request);
     }
 

@@ -44,7 +44,9 @@ public class LoginFilter extends ZuulFilter {
     public Object run() throws ZuulException {
         RequestContext currentContext = RequestContext.getCurrentContext();
         HttpServletRequest request = currentContext.getRequest();
-        if (!authService.exist(authService.getToken(request))) {
+
+        String token = authService.getToken(request);
+        if (!authService.exist(token)) {
             // 拒绝访问
             currentContext.setSendZuulResponse(false);
             currentContext.setResponseStatusCode(401);
@@ -53,6 +55,8 @@ public class LoginFilter extends ZuulFilter {
             currentContext.getResponse().setContentType("application/json;charset=utf-8");
         }
 
+        // 传递jwt
+        currentContext.addZuulRequestHeader("jwt",authService.getJwt(token));
         return null;
     }
 }

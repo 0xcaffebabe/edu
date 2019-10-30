@@ -13,8 +13,11 @@
     </select>
 
     <select id="findCourseListPage" resultType="wang.ismy.edu.domain.course.ext.CourseInfo">
-        SELECT * FROM course_base LEFT JOIN course_pic
-        ON course_base.id = course_pic.courseid
+    SELECT * FROM
+            (SELECT * FROM course_base LEFT JOIN course_pic
+            ON course_base.id = course_pic.courseid ) AS T
+    WHERE company_id = #{companyId}
+
     </select>
 
 

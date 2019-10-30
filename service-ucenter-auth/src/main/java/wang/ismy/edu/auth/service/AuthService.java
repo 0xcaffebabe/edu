@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.jwt.Jwt;
@@ -14,16 +15,20 @@ import org.springframework.security.jwt.crypto.sign.RsaSigner;
 import org.springframework.security.rsa.crypto.KeyStoreKeyFactory;
 import org.springframework.stereotype.Service;
 import wang.ismy.edu.common.exception.ExceptionCast;
+import wang.ismy.edu.domain.ucenter.XcMenu;
 import wang.ismy.edu.domain.ucenter.ext.AuthToken;
 import wang.ismy.edu.domain.ucenter.ext.UserTokenStore;
+import wang.ismy.edu.domain.ucenter.ext.XcUserExt;
 import wang.ismy.edu.domain.ucenter.response.AuthCode;
 
 import java.security.KeyPair;
 import java.security.interfaces.RSAPrivateKey;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 /**
  * @author MY
@@ -38,16 +43,17 @@ public class AuthService {
     private StringRedisTemplate redisTemplate;
 
     public AuthToken login(String username, String password) {
-        UserDetails details = userService.loadUserByUsername(username);
-        if (details == null) {
+        XcUserExt ext = userService.loadUserByUsername(username);
+
+        if (ext == null) {
             ExceptionCast.cast(AuthCode.AUTH_CREDENTIAL_ERROR);
         }
-        if (new BCryptPasswordEncoder().matches(password, details.getPassword())) {
+        if (new BCryptPasswordEncoder().matches(password, ext.getPassword())) {
             AuthToken authToken = new AuthToken();
             String accessToken = UUID.randomUUID().toString();
             authToken.setAccess_token(accessToken);
             authToken.setRefresh_token(accessToken);
-            authToken.setJwt_token(generateJwt(details));
+            authToken.setJwt_token(generateJwt(ext));
             redisTemplate.opsForValue().set("user_token:" + accessToken, authToken.getJwt_token(), 1, TimeUnit.HOURS);
             return authToken;
         } else {
@@ -69,11 +75,13 @@ public class AuthService {
         return authToken;
     }
 
-    private String generateJwt(UserDetails details) {
+    private String generateJwt(XcUserExt ext) {
         Map<String, String> map = new HashMap<>();
-        map.put("username", details.getUsername());
-        map.put("password", details.getPassword());
-//        map.put("authorities",JSON.toJSONString(details.getAuthorities().stream().map(a->a.)));
+        map.put("username", ext.getUsername());
+        map.put("password", ext.getPassword());
+        List<String> permissions = ext.getPermissions().stream().map(XcMenu::getCode).collect(Collectors.toList());
+        map.put("authorities", JSON.toJSONString(permissions));
+        map.put("companyId", ext.getCompanyId());
         if (true) {
             return JSON.toJSONString(map);
         }
@@ -103,6 +111,6 @@ public class AuthService {
     }
 
     public void clearToken(String token) {
-        redisTemplate.delete("user_token:"+token);
+        redisTemplate.delete("user_token:" + token);
     }
 }

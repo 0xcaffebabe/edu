@@ -25,4 +25,6 @@ public class UserCenterController implements UcenterControllerApi {
     public XcUserExt getUser(@RequestParam String username) {
         return userService.getUserExt(username);
     }
+
+
 }

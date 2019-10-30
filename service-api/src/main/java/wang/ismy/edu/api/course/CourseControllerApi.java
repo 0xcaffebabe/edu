@@ -33,7 +33,7 @@ public interface CourseControllerApi {
      * @param request 请求参数
      * @return 响应实体
      */
-    QueryResponseResult<CourseInfo> findCourseList(Integer page, Integer size, CourseListRequest request);
+    QueryResponseResult<CourseInfo> findCourseList(Integer page, Integer size, CourseListRequest request,String jwt);
 
     /**
      * 新增课程

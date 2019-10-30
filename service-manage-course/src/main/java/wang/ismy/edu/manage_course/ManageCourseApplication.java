@@ -17,6 +17,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication
 @MapperScan("wang.ismy.edu.manage_course.dao")
 @EntityScan("wang.ismy.edu.domain.course")
+
 @EnableScheduling
 @EnableFeignClients
 public class ManageCourseApplication {

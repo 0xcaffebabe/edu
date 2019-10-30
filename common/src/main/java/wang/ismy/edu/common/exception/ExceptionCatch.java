@@ -27,13 +27,15 @@ public class ExceptionCatch {
     @ExceptionHandler(CustomException.class)
     @ResponseBody
     public ResponseResult handle(CustomException e) {
-        log.error("捕获异常:{}", e.getMessage(), e);
+        e.printStackTrace();
+        log.error("捕获异常:{},{}", e.getMessage(), e);
         return new ResponseResult(e.getResultCode());
     }
 
     @ExceptionHandler(Exception.class)
     @ResponseBody
     public ResponseResult handle(Exception e) {
+        e.printStackTrace();
         log.error("捕获异常:{}", e.getMessage());
 
         ResultCode resultCode = EXCEPTION_MAP.get(e.getClass());

@@ -13,5 +13,5 @@ public interface CourseMapper {
 
     CourseBase find(String courseId);
 
-    Page<CourseInfo> findCourseListPage();
+    Page<CourseInfo> findCourseListPage(String companyId);
 }

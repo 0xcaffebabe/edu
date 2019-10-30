@@ -45,7 +45,7 @@ public interface CmsPageControllerApi {
 
     ResponseResult postPage(String pageId);
 
-    CmsPageResult save(CmsPage cmsPage);
+    CmsPageResult save(CmsPage cmsPage,String jwt);
 
     CmsPostPageResult postPageQuick(CmsPage cmsPage);
 }

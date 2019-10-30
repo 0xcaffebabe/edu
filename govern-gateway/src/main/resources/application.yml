@@ -58,3 +58,8 @@ zuul:
       serviceId: service-ucenter
       strip-prefix: true
       sensitiveHeaders:
+    manage-auth:
+      path: /auth/**
+      serviceId: service-ucenter-auth
+      strip-prefix: true
+      sensitiveHeaders:
