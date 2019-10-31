@@ -30,6 +30,7 @@
         <module>../service-ucenter-auth</module>
         <module>../service-ucenter</module>
         <module>../govern-gateway</module>
+        <module>../service-manage-order</module>
     </modules>
 
     <properties>
