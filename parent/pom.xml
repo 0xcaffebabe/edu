@@ -53,7 +53,7 @@
         <feign-okhttp.version>8.18.0</feign-okhttp.version>
         <lombok.version>1.18.10</lombok.version>
         <springfox-swagger.version>2.9.2</springfox-swagger.version>
-        <fastjson.version>1.2.30</fastjson.version>
+        <fastjson.version>1.2.83</fastjson.version>
         <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>
         <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
         <elasticsearch.version>6.2.1</elasticsearch.version>
