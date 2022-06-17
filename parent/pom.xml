@@ -57,7 +57,7 @@
         <fastDFS.client.version>1.26.1-RELEASE</fastDFS.client.version>
         <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
         <elasticsearch.version>6.2.1</elasticsearch.version>
-        <guava.version>28.1-jre</guava.version>
+        <guava.version>29.0-jre</guava.version>
     </properties>
     <!--test-->
     <dependencyManagement>
